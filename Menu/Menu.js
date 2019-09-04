@@ -12,6 +12,7 @@ let menuItems = [
 ];
 
 function menuComponent(data){
+
   const menuDiv = document.createElement('div');
   const menuList = document.createElement('ul');
 
@@ -31,7 +32,12 @@ function menuComponent(data){
 
   return menuDiv;
 
-}
+};
+
+const newMenu = menuComponent(menuItems);
+
+const header = document.querySelector('.header');
+header.appendChild(newMenu); 
 
 
 
