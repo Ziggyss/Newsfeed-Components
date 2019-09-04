@@ -22,15 +22,15 @@ function menuComponent(data){
     let li = document.createElement('li');
     li.textContent = item;
     menuList.appendChild(li);
-  })
+  });
 
-  menuDiv.appendChild(menuList);
+ menuDiv.appendChild(menuList);
 
-  menuButton.addEventListener('click', () => {
+ menuButton.addEventListener('click', () => {
     menuDiv.classList.toggle('menu--open');
   });
 
-  return menuDiv;
+ return menuDiv;
 
 };
 
@@ -40,7 +40,7 @@ const header = document.querySelector('.header');
 header.appendChild(newMenu); 
 
 
-
+//I can see that the event listener is working but my menu is not toggling and is appearing in the wrong place on the right hand side of the header.
 
 
 /* 
