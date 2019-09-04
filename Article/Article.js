@@ -85,6 +85,14 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  {
+    title: 'My New Article',
+    date: 'September 4th, 2019',
+    firstParagraph: 'This is my article.',
+    secondParagraph: 'I am so imaginative.',
+    thirdParagraph: 'Writing articles is my forte.'
   }
 ];
 
@@ -116,7 +124,7 @@ function createArticle({title, date, firstParagraph, secondParagraph, thirdParag
   articleDiv.appendChild(articleButton);
 
   articleButton.addEventListener('click', event => {
-     articleDiv.classList.toggle('.article-open');
+     articleDiv.classList.toggle('article-open');
   });
 
      return articleDiv;
@@ -142,17 +150,12 @@ const test = createArticle({
 
 const articles = data.map(createArticle);
 
-/* const articles = data.map(item => {
-  const article = createArticle(item);
-  return article;
-}); 
- */
-/* const articlesContainer = document.querySelector('.articles');
+const articlesContainer = document.querySelector('.articles');
 
 articles.forEach(element  => {
   articlesContainer.appendChild(element);
 });
- */
+
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
