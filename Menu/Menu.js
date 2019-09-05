@@ -1,5 +1,7 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
+const menuButton = document.querySelector('.menu-button');
+
 let menuItems = [
   'Students',
   'Faculty',
@@ -8,6 +10,38 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+
+function menuComponent(data){
+
+  const menuDiv = document.createElement('div');
+  const menuList = document.createElement('ul');
+
+  menuDiv.classList.add('menu');
+  
+  data.forEach((item) => {
+    let li = document.createElement('li');
+    li.textContent = item;
+    menuList.appendChild(li);
+  });
+
+ menuDiv.appendChild(menuList);
+
+ menuButton.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu--open');
+  });
+
+ return menuDiv;
+
+};
+
+const newMenu = menuComponent(menuItems);
+
+const header = document.querySelector('.header');
+header.appendChild(newMenu); 
+
+
+//I can see that the event listener is working but my menu is not toggling and is appearing in the wrong place on the right hand side of the header.
+
 
 /* 
 

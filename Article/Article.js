@@ -85,8 +85,76 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+  {
+    title: 'My New Article',
+    date: 'September 4th, 2019',
+    firstParagraph: 'This is my article.',
+    secondParagraph: 'I am so imaginative.',
+    thirdParagraph: 'Writing articles is my forte.'
   }
 ];
+
+function createArticle({title, date, firstParagraph, secondParagraph, thirdParagraph}){
+  
+  const articleDiv = document.createElement('div');
+  const articleTitle = document.createElement('h3');
+  const articleDate = document.createElement('p')
+  const articleParagraph1 = document.createElement('p');
+  const articleParagraph2 = document.createElement('p');
+  const articleParagraph3 = document.createElement('p');
+  const articleButton = document.createElement('span');
+
+  articleDiv.classList.add('article');
+  articleDate.classList.add('date');
+  articleDate.textContent = date;
+  articleTitle.textContent = title;
+  articleParagraph1.textContent = firstParagraph;
+  articleParagraph2.textContent = secondParagraph;
+  articleParagraph3.textContent = thirdParagraph;
+  articleButton.classList.add('expandButton');
+  articleButton.textContent = 'Toggle';
+
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(articleParagraph1);
+  articleDiv.appendChild(articleParagraph2);
+  articleDiv.appendChild(articleParagraph3);
+  articleDiv.appendChild(articleButton);
+
+  articleButton.addEventListener('click', event => {
+     articleDiv.classList.toggle('article-open');
+  });
+
+     return articleDiv;
+}
+
+const test = createArticle({
+  title: 'Professional Software Development in 2019',
+  date: 'Jan 1st, 2019',
+  firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+        hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+        Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+  secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+        hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+        hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+        hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+  thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+        Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+        Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+});
+
+
+const articles = data.map(createArticle);
+
+const articlesContainer = document.querySelector('.articles');
+
+articles.forEach(element  => {
+  articlesContainer.appendChild(element);
+});
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
